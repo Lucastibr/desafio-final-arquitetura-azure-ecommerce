@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Este repositório apresenta a arquitetura de solução em nuvem desenvolvida para o Desafio Final do curso de Arquitetura de Soluções.
+Este repositório apresenta a arquitetura de solução em nuvem desenvolvida para o Desafio Final da pós-graduação em Arquitetura de Soluções.
 
 A proposta consiste em uma arquitetura para uma aplicação de e-commerce com operação 24/7, projetada para alta disponibilidade, escalabilidade, segurança, observabilidade e recuperação de desastres utilizando serviços da Microsoft Azure.
 
