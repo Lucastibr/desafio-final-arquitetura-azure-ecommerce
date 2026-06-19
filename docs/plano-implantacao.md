@@ -173,7 +173,7 @@ Regras conceituais recomendadas:
 
 | Origem                  | Destino             | Porta/Protocolo | Ação     | Justificativa                          |
 | ----------------------- | ------------------- | --------------- | -------- | -------------------------------------- |
-| Azure Front Door        | Application Gateway | HTTPS/443       | Permitir | Entrada regional da aplicação          |
+| AzureFrontDoor.Backend (service tag) | Application Gateway | HTTPS/443 | Permitir | Entrada regional; validar header X-Azure-FDID |
 | Application Gateway     | VM Scale Set        | HTTP/HTTPS      | Permitir | Balanceamento para camada de aplicação |
 | VM Scale Set            | Private Endpoint    | TCP/1433        | Permitir | Acesso privado ao Azure SQL Database   |
 | Internet                | VM Scale Set        | SSH/22          | Negar    | VMs não devem expor SSH público        |

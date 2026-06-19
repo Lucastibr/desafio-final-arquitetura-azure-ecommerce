@@ -672,7 +672,7 @@ AzureDiagnostics
 | order by Total desc
 ```
 
-Essas consultas devem ser adaptadas conforme os nomes reais das tabelas, categorias e campos disponíveis no ambiente.
+Essas consultas assumem o modo de coleta legado *Azure diagnostics*, em que tudo é enviado para a tabela `AzureDiagnostics`. Com o modo recomendado *Resource-specific*, os logs vão para tabelas dedicadas — por exemplo `AGWAccessLogs` e `AGWFirewallLogs` (Application Gateway), `FrontDoorAccessLog` e `FrontDoorWebApplicationFirewallLog` (Front Door) e `SQLSecurityAuditEvents` (Azure SQL). Ajuste as consultas conforme o modo de diagnóstico e os nomes reais de tabelas, categorias e campos do ambiente.
 
 ---
 

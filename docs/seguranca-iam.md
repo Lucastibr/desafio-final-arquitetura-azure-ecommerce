@@ -309,14 +309,16 @@ Regras conceituais recomendadas:
 
 | Origem                  | Destino             | Porta/Protocolo | Ação     | Justificativa                                |
 | ----------------------- | ------------------- | --------------- | -------- | -------------------------------------------- |
-| Azure Front Door        | Application Gateway | HTTPS/443       | Permitir | Entrada regional controlada                  |
+| AzureFrontDoor.Backend (service tag) | Application Gateway | HTTPS/443 | Permitir | Entrada regional; validar header X-Azure-FDID no App Gateway |
 | Application Gateway     | VM Scale Set        | HTTP/HTTPS      | Permitir | Balanceamento para aplicação                 |
 | VM Scale Set            | Private Endpoint    | TCP/1433        | Permitir | Acesso ao Azure SQL                          |
 | Internet                | VM Scale Set        | SSH/22          | Negar    | VMs não devem expor SSH público              |
-| Internet                | Azure SQL Database  | Qualquer        | Negar    | Banco deve ser acessado via Private Endpoint |
+| Internet | Subnet Private Endpoints | Qualquer | Negar | Endpoint privado não recebe tráfego externo |
 | Subnets não autorizadas | Subnet Aplicação    | Qualquer        | Negar    | Redução de movimento lateral                 |
 
 As regras exatas devem ser refinadas conforme portas reais da aplicação, endereços e requisitos operacionais.
+
+O bloqueio do acesso público ao Azure SQL Database não é feito por NSG, pois o banco é um serviço PaaS externo à VNet. Esse bloqueio é garantido desabilitando o *Public network access* no próprio servidor SQL, deixando o Private Endpoint como único caminho de acesso.
 
 ---
 
